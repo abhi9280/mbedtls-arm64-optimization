@@ -1,0 +1,58 @@
+build version: Mbed TLS 4.0.0 (build 67108864)
+
+  . Seeding the random number generator... ok
+  . Loading the CA root certificate ... ok (0 skipped)
+  . Loading the client cert. and key... ok (key type: invalid PK)
+  . Setting up the SSL/TLS structure... ok
+  . Connecting to tcp/localhost/4433... ok
+  . Performing the SSL/TLS handshake...
+Verify requested for (Depth 0):
+ ok
+    [ Protocol is TLSv1.3 ]
+    [ Ciphersuite is TLS1-3-AES-128-GCM-SHA256 ]
+    [ Key size is 128 ]
+    [ Record expansion is 37 ]
+    [ Maximum incoming record payload length is 16384 ]
+    [ Maximum outgoing record payload length is 16383 ]
+  . Verifying peer X.509 certificate... failed
+  ! The certificate is not correctly signed by the trusted CA
+
+  . Peer certificate information    ...
+cert. version     : 3
+serial number     : 49:EC:19:B2:67:87:63:F7:82:67:88:73:8B:10:E5:F2:C2:FA:25:E5
+issuer name       : CN=localhost
+subject name      : CN=localhost
+issued  on        : 2026-05-09 10:33:02
+expires on        : 2027-05-09 10:33:02
+signed using      : ECDSA with SHA256
+EC key size       : 256 bits
+basic constraints : CA=true
+
+  > Write to server: 51 bytes written in 1 fragments
+
+GET / HTTP/1.0
+Host: localhost
+Extra-header: 
+
+
+ got new session ticket ( 0 ).
+  < Read from server: 138 bytes read
+
+HTTP/1.0 200 OK
+Content-Type: text/html
+
+<h2>Mbed TLS Test Server</h2>
+<p>Successful connection using: TLS1-3-AES-128-GCM-SHA256</p>
+  . Closing the connection... done
+
+ Performance counter stats for './programs/ssl/ssl_client2 server_name=localhost server_port=4433 auth_mode=optional crt_file=none key_file=none force_ciphersuite=TLS1-3-AES-128-GCM-SHA256':
+
+        21,447,082      cycles                                                                
+        32,569,416      instructions                     #    1.52  insn per cycle            
+
+       0.064999013 seconds time elapsed
+
+       0.016112000 seconds user
+       0.000000000 seconds sys
+
+

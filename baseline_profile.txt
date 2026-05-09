@@ -1,0 +1,52 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 66  of event 'cycles:P'
+# Event count (approx.): 21481423
+#
+# Overhead  Symbol                               IPC   [IPC Coverage]
+# ........  ...................................  ....................
+#
+    17.25%  [.] mbedtls_mpi_core_sub             -      -            
+     6.85%  [.] mbedtls_mpi_core_gcd_modinv_odd  -      -            
+     6.70%  [.] mbedtls_mpi_cmp_mpi              -      -            
+     6.63%  [.] mbedtls_mpi_core_mla             -      -            
+     5.12%  [.] mbedtls_mpi_grow                 -      -            
+     4.80%  [.] mbedtls_mpi_mul_mpi              -      -            
+     3.70%  [.] ecp_modp                         -      -            
+     3.49%  [.] ecp_mod_p256                     -      -            
+     2.17%  [.] __libc_calloc                    -      -            
+     2.16%  [.] 0x00000000000092e8               -      -            
+     2.11%  [k] filemap_map_pages                -      -            
+     2.06%  [.] 0x00000000000a3b64               -      -            
+     2.01%  [k] set_pte_range                    -      -            
+     1.96%  [k] tcp_v6_do_rcv                    -      -            
+     1.84%  [.] 0x00000000000a3fd0               -      -            
+     1.82%  [.] mbedtls_mpi_core_cond_swap       -      -            
+     1.74%  [.] mbedtls_mpi_core_mul             -      -            
+     1.73%  [.] mbedtls_mpi_core_sub_int         -      -            
+     1.73%  [.] mbedtls_mpi_core_lt_ct           -      -            
+     1.73%  [.] ecp_double_jac                   -      -            
+     1.73%  [.] mbedtls_ssl_read_record          -      -            
+     1.73%  [.] mbedtls_mpi_sub_abs              -      -            
+     1.72%  [.] cfree                            -      -            
+     1.72%  [.] mbedtls_mpi_shift_l              -      -            
+     1.72%  [.] calloc@plt                       -      -            
+     1.71%  [k] handle_softirqs                  -      -            
+     1.67%  [.] mbedtls_mpi_sub_mod              -      -            
+     1.67%  [.] _IO_file_setbuf                  -      -            
+     1.67%  [k] tcp_event_new_data_sent          -      -            
+     1.67%  [.] recv_timeout_cb                  -      -            
+     1.66%  [k] __pi_clear_page                  -      -            
+     1.66%  [.] memcpy@plt                       -      -            
+     1.54%  [.] ecp_mod_p255                     -      -            
+     0.48%  [k] anon_vma_clone                   -      -            
+     0.06%  [k] flush_signal_handlers            -      -            
+     0.01%  [k] perf_event_exec                  -      -            
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

@@ -1,0 +1,265 @@
+Test project /home/abhishek/mbedtls/build
+        Start   1: aes.cbc-suite
+  1/130 Test   #1: aes.cbc-suite ..............................   Passed    0.01 sec
+        Start   2: aes.cfb-suite
+  2/130 Test   #2: aes.cfb-suite ..............................   Passed    0.01 sec
+        Start   3: aes.ctr-suite
+  3/130 Test   #3: aes.ctr-suite ..............................   Passed    0.00 sec
+        Start   4: aes.ecb-suite
+  4/130 Test   #4: aes.ecb-suite ..............................   Passed    0.00 sec
+        Start   5: aes.ofb-suite
+  5/130 Test   #5: aes.ofb-suite ..............................   Passed    0.00 sec
+        Start   6: aes.rest-suite
+  6/130 Test   #6: aes.rest-suite .............................   Passed    0.03 sec
+        Start   7: aes.xts-suite
+  7/130 Test   #7: aes.xts-suite ..............................   Passed    0.00 sec
+        Start   8: alignment-suite
+  8/130 Test   #8: alignment-suite ............................   Passed    0.00 sec
+        Start   9: aria-suite
+  9/130 Test   #9: aria-suite .................................   Passed    0.00 sec
+        Start  10: asn1parse-suite
+ 10/130 Test  #10: asn1parse-suite ............................   Passed    0.11 sec
+        Start  11: asn1write-suite
+ 11/130 Test  #11: asn1write-suite ............................   Passed    0.00 sec
+        Start  12: base64-suite
+ 12/130 Test  #12: base64-suite ...............................   Passed    0.00 sec
+        Start  13: bignum.generated-suite
+ 13/130 Test  #13: bignum.generated-suite .....................   Passed    0.12 sec
+        Start  14: bignum.misc-suite
+ 14/130 Test  #14: bignum.misc-suite ..........................   Passed    6.35 sec
+        Start  15: bignum_core.generated-suite
+ 15/130 Test  #15: bignum_core.generated-suite ................   Passed    5.38 sec
+        Start  16: bignum_core.misc-suite
+ 16/130 Test  #16: bignum_core.misc-suite .....................   Passed    0.01 sec
+        Start  17: bignum_mod.generated-suite
+ 17/130 Test  #17: bignum_mod.generated-suite .................   Passed    0.02 sec
+        Start  18: bignum_mod.misc-suite
+ 18/130 Test  #18: bignum_mod.misc-suite ......................   Passed    0.00 sec
+        Start  19: bignum_mod_raw-suite
+ 19/130 Test  #19: bignum_mod_raw-suite .......................   Passed    0.00 sec
+        Start  20: bignum_mod_raw.generated-suite
+ 20/130 Test  #20: bignum_mod_raw.generated-suite .............   Passed    0.03 sec
+        Start  21: bignum_random-suite
+ 21/130 Test  #21: bignum_random-suite ........................   Passed    0.04 sec
+        Start  22: block_cipher-suite
+ 22/130 Test  #22: block_cipher-suite .........................   Passed    0.00 sec
+        Start  23: camellia-suite
+ 23/130 Test  #23: camellia-suite .............................   Passed    0.00 sec
+        Start  24: ccm-suite
+ 24/130 Test  #24: ccm-suite ..................................   Passed    0.41 sec
+        Start  25: chacha20-suite
+ 25/130 Test  #25: chacha20-suite .............................   Passed    0.00 sec
+        Start  26: chachapoly-suite
+ 26/130 Test  #26: chachapoly-suite ...........................   Passed    0.00 sec
+        Start  27: cipher.aes-suite
+ 27/130 Test  #27: cipher.aes-suite ...........................   Passed    0.01 sec
+        Start  28: cipher.aria-suite
+ 28/130 Test  #28: cipher.aria-suite ..........................   Passed    0.00 sec
+        Start  29: cipher.camellia-suite
+ 29/130 Test  #29: cipher.camellia-suite ......................   Passed    0.01 sec
+        Start  30: cipher.ccm-suite
+ 30/130 Test  #30: cipher.ccm-suite ...........................   Passed    0.01 sec
+        Start  31: cipher.chacha20-suite
+ 31/130 Test  #31: cipher.chacha20-suite ......................   Passed    0.00 sec
+        Start  32: cipher.chachapoly-suite
+ 32/130 Test  #32: cipher.chachapoly-suite ....................   Passed    0.00 sec
+        Start  33: cipher.constant_time-suite
+ 33/130 Test  #33: cipher.constant_time-suite .................   Passed    0.00 sec
+        Start  34: cipher.gcm-suite
+ 34/130 Test  #34: cipher.gcm-suite ...........................   Passed    0.04 sec
+        Start  35: cipher.misc-suite
+ 35/130 Test  #35: cipher.misc-suite ..........................   Passed    0.00 sec
+        Start  36: cipher.padding-suite
+ 36/130 Test  #36: cipher.padding-suite .......................   Passed    0.00 sec
+        Start  37: cmac-suite
+ 37/130 Test  #37: cmac-suite .................................   Passed    0.00 sec
+        Start  38: common-suite
+ 38/130 Test  #38: common-suite ...............................   Passed    0.00 sec
+        Start  39: config.crypto_combinations-suite
+ 39/130 Test  #39: config.crypto_combinations-suite ...........   Passed    0.00 sec
+        Start  40: config.psa_boolean-suite
+ 40/130 Test  #40: config.psa_boolean-suite ...................   Passed    0.00 sec
+        Start  41: config.psa_combinations-suite
+ 41/130 Test  #41: config.psa_combinations-suite ..............   Passed    0.00 sec
+        Start  42: constant_time-suite
+ 42/130 Test  #42: constant_time-suite ........................   Passed    0.01 sec
+        Start  43: ctr_drbg-suite
+ 43/130 Test  #43: ctr_drbg-suite .............................   Passed    0.01 sec
+        Start  44: ecdh-suite
+ 44/130 Test  #44: ecdh-suite .................................   Passed    0.23 sec
+        Start  45: ecdsa-suite
+ 45/130 Test  #45: ecdsa-suite ................................   Passed    0.49 sec
+        Start  46: ecjpake-suite
+ 46/130 Test  #46: ecjpake-suite ..............................   Passed    0.31 sec
+        Start  47: ecp-suite
+ 47/130 Test  #47: ecp-suite ..................................   Passed    0.54 sec
+        Start  48: ecp.generated-suite
+ 48/130 Test  #48: ecp.generated-suite ........................   Passed    0.01 sec
+        Start  49: entropy-suite
+ 49/130 Test  #49: entropy-suite ..............................   Passed    0.01 sec
+        Start  50: gcm.aes128_de-suite
+ 50/130 Test  #50: gcm.aes128_de-suite ........................   Passed    4.20 sec
+        Start  51: gcm.aes128_en-suite
+ 51/130 Test  #51: gcm.aes128_en-suite ........................   Passed    7.66 sec
+        Start  52: gcm.aes192_de-suite
+ 52/130 Test  #52: gcm.aes192_de-suite ........................   Passed    4.61 sec
+        Start  53: gcm.aes192_en-suite
+ 53/130 Test  #53: gcm.aes192_en-suite ........................   Passed    8.10 sec
+        Start  54: gcm.aes256_de-suite
+ 54/130 Test  #54: gcm.aes256_de-suite ........................   Passed    4.04 sec
+        Start  55: gcm.aes256_en-suite
+ 55/130 Test  #55: gcm.aes256_en-suite ........................   Passed    8.46 sec
+        Start  56: gcm.camellia-suite
+ 56/130 Test  #56: gcm.camellia-suite .........................   Passed    0.13 sec
+        Start  57: gcm.misc-suite
+ 57/130 Test  #57: gcm.misc-suite .............................   Passed    0.00 sec
+        Start  58: hmac_drbg.misc-suite
+ 58/130 Test  #58: hmac_drbg.misc-suite .......................   Passed    0.06 sec
+        Start  59: hmac_drbg.no_reseed-suite
+ 59/130 Test  #59: hmac_drbg.no_reseed-suite ..................   Passed    0.05 sec
+        Start  60: hmac_drbg.nopr-suite
+ 60/130 Test  #60: hmac_drbg.nopr-suite .......................   Passed    0.03 sec
+        Start  61: hmac_drbg.pr-suite
+ 61/130 Test  #61: hmac_drbg.pr-suite .........................   Passed    0.03 sec
+        Start  62: lmots-suite
+ 62/130 Test  #62: lmots-suite ................................   Passed    0.09 sec
+        Start  63: lms-suite
+ 63/130 Test  #63: lms-suite ..................................   Passed    0.18 sec
+        Start  64: md-suite
+ 64/130 Test  #64: md-suite ...................................   Passed    0.02 sec
+        Start  65: mdx-suite
+ 65/130 Test  #65: mdx-suite ..................................   Passed    0.00 sec
+        Start  66: memory_buffer_alloc-suite
+ 66/130 Test  #66: memory_buffer_alloc-suite ..................   Passed    0.00 sec
+        Start  67: nist_kw-suite
+ 67/130 Test  #67: nist_kw-suite ..............................   Passed    0.01 sec
+        Start  68: oid-suite
+ 68/130 Test  #68: oid-suite ..................................   Passed    0.00 sec
+        Start  69: pem-suite
+ 69/130 Test  #69: pem-suite ..................................   Passed    0.01 sec
+        Start  70: pk-suite
+ 70/130 Test  #70: pk-suite ...................................   Passed    1.81 sec
+        Start  71: pk.pk_can_do_psa-suite
+ 71/130 Test  #71: pk.pk_can_do_psa-suite .....................   Passed    0.42 sec
+        Start  72: pkcs1_v15-suite
+ 72/130 Test  #72: pkcs1_v15-suite ............................   Passed    0.15 sec
+        Start  73: pkcs1_v21-suite
+ 73/130 Test  #73: pkcs1_v21-suite ............................   Passed    3.33 sec
+        Start  74: pkcs5-suite
+ 74/130 Test  #74: pkcs5-suite ................................   Passed    1.05 sec
+        Start  75: pkparse-suite
+ 75/130 Test  #75: pkparse-suite ..............................   Passed   25.84 sec
+        Start  76: pkwrite-suite
+ 76/130 Test  #76: pkwrite-suite ..............................   Passed   15.80 sec
+        Start  77: platform-suite
+ 77/130 Test  #77: platform-suite .............................   Passed    0.00 sec
+        Start  78: platform_printf-suite
+ 78/130 Test  #78: platform_printf-suite ......................   Passed    0.00 sec
+        Start  79: platform_threading-suite
+ 79/130 Test  #79: platform_threading-suite ...................   Passed    0.00 sec
+        Start  80: platform_util-suite
+ 80/130 Test  #80: platform_util-suite ........................   Passed    0.00 sec
+        Start  81: poly1305-suite
+ 81/130 Test  #81: poly1305-suite .............................   Passed    0.00 sec
+        Start  82: psa_crypto.concurrent-suite
+ 82/130 Test  #82: psa_crypto.concurrent-suite ................   Passed    0.00 sec
+        Start  83: psa_crypto-suite
+ 83/130 Test  #83: psa_crypto-suite ...........................   Passed   23.18 sec
+        Start  84: psa_crypto.pbkdf2-suite
+ 84/130 Test  #84: psa_crypto.pbkdf2-suite ....................   Passed   92.35 sec
+        Start  85: psa_crypto.persistent-suite
+ 85/130 Test  #85: psa_crypto.persistent-suite ................   Passed    0.09 sec
+        Start  86: psa_crypto_attributes-suite
+ 86/130 Test  #86: psa_crypto_attributes-suite ................   Passed    0.00 sec
+        Start  87: psa_crypto_constant_time-suite
+ 87/130 Test  #87: psa_crypto_constant_time-suite .............   Passed    0.00 sec
+        Start  88: psa_crypto_driver_wrappers-suite
+ 88/130 Test  #88: psa_crypto_driver_wrappers-suite ...........   Passed    0.01 sec
+        Start  89: psa_crypto_ecp-suite
+ 89/130 Test  #89: psa_crypto_ecp-suite .......................   Passed    0.01 sec
+        Start  90: psa_crypto_entropy-suite
+ 90/130 Test  #90: psa_crypto_entropy-suite ...................   Passed    0.00 sec
+        Start  91: psa_crypto_generate_key.generated-suite
+ 91/130 Test  #91: psa_crypto_generate_key.generated-suite ....   Passed    0.15 sec
+        Start  92: psa_crypto_hash-suite
+ 92/130 Test  #92: psa_crypto_hash-suite ......................   Passed    0.09 sec
+        Start  93: psa_crypto_init-suite
+ 93/130 Test  #93: psa_crypto_init-suite ......................   Passed    0.00 sec
+        Start  94: psa_crypto_low_hash.generated-suite
+ 94/130 Test  #94: psa_crypto_low_hash.generated-suite ........   Passed    0.00 sec
+        Start  95: psa_crypto_memory-suite
+ 95/130 Test  #95: psa_crypto_memory-suite ....................   Passed    0.00 sec
+        Start  96: psa_crypto_metadata-suite
+ 96/130 Test  #96: psa_crypto_metadata-suite ..................   Passed    0.00 sec
+        Start  97: psa_crypto_not_supported.generated-suite
+ 97/130 Test  #97: psa_crypto_not_supported.generated-suite ...   Passed    0.01 sec
+        Start  98: psa_crypto_not_supported.misc-suite
+ 98/130 Test  #98: psa_crypto_not_supported.misc-suite ........   Passed    0.00 sec
+        Start  99: psa_crypto_op_fail.generated-suite
+ 99/130 Test  #99: psa_crypto_op_fail.generated-suite .........   Passed    0.60 sec
+        Start 100: psa_crypto_op_fail.misc-suite
+100/130 Test #100: psa_crypto_op_fail.misc-suite ..............   Passed    0.00 sec
+        Start 101: psa_crypto_pake-suite
+101/130 Test #101: psa_crypto_pake-suite ......................   Passed    1.06 sec
+        Start 102: psa_crypto_persistent_key-suite
+102/130 Test #102: psa_crypto_persistent_key-suite ............   Passed    0.01 sec
+        Start 103: psa_crypto_slot_management-suite
+103/130 Test #103: psa_crypto_slot_management-suite ...........   Passed    0.03 sec
+        Start 104: psa_crypto_storage_format.current-suite
+104/130 Test #104: psa_crypto_storage_format.current-suite ....   Passed    0.37 sec
+        Start 105: psa_crypto_storage_format.misc-suite
+105/130 Test #105: psa_crypto_storage_format.misc-suite .......   Passed    0.02 sec
+        Start 106: psa_crypto_storage_format.v0-suite
+106/130 Test #106: psa_crypto_storage_format.v0-suite .........   Passed   34.41 sec
+        Start 107: psa_crypto_util-suite
+107/130 Test #107: psa_crypto_util-suite ......................   Passed    0.00 sec
+        Start 108: psa_its-suite
+108/130 Test #108: psa_its-suite ..............................   Passed    0.01 sec
+        Start 109: random-suite
+109/130 Test #109: random-suite ...............................   Passed    0.01 sec
+        Start 110: rsa-suite
+110/130 Test #110: rsa-suite ..................................   Passed    6.07 sec
+        Start 111: shax-suite
+111/130 Test #111: shax-suite .................................   Passed    0.31 sec
+        Start 112: tf_psa_crypto_version-suite
+112/130 Test #112: tf_psa_crypto_version-suite ................   Passed    0.00 sec
+        Start 113: config.mbedtls_boolean-suite
+113/130 Test #113: config.mbedtls_boolean-suite ...............   Passed    0.00 sec
+        Start 114: config.tls_combinations-suite
+114/130 Test #114: config.tls_combinations-suite ..............   Passed    0.00 sec
+        Start 115: constant_time_hmac-suite
+115/130 Test #115: constant_time_hmac-suite ...................   Passed    0.00 sec
+        Start 116: debug-suite
+116/130 Test #116: debug-suite ................................   Passed    0.01 sec
+        Start 117: error-suite
+117/130 Test #117: error-suite ................................   Passed    0.00 sec
+        Start 118: mps-suite
+118/130 Test #118: mps-suite ..................................   Passed    0.12 sec
+        Start 119: net-suite
+119/130 Test #119: net-suite ..................................   Passed    0.00 sec
+        Start 120: pkcs7-suite
+120/130 Test #120: pkcs7-suite ................................   Passed    0.06 sec
+        Start 121: ssl-suite
+121/130 Test #121: ssl-suite ..................................   Passed    7.55 sec
+        Start 122: ssl.records-suite
+122/130 Test #122: ssl.records-suite ..........................   Passed    0.75 sec
+        Start 123: ssl.tls-defrag-suite
+123/130 Test #123: ssl.tls-defrag-suite .......................   Passed    0.11 sec
+        Start 124: ssl_decrypt.misc-suite
+124/130 Test #124: ssl_decrypt.misc-suite .....................   Passed    4.78 sec
+        Start 125: test_helpers-suite
+125/130 Test #125: test_helpers-suite .........................   Passed    0.00 sec
+        Start 126: timing-suite
+126/130 Test #126: timing-suite ...............................   Passed    0.00 sec
+        Start 127: version-suite
+127/130 Test #127: version-suite ..............................   Passed    0.00 sec
+        Start 128: x509_oid-suite
+128/130 Test #128: x509_oid-suite .............................   Passed    0.00 sec
+        Start 129: x509parse-suite
+129/130 Test #129: x509parse-suite ............................   Passed    1.19 sec
+        Start 130: x509write-suite
+130/130 Test #130: x509write-suite ............................   Passed    2.98 sec
+
+100% tests passed, 0 tests failed out of 130
+
+Total Test time (real) = 276.95 sec
