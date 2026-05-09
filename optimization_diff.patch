@@ -1,0 +1,314 @@
+--- /home/abhishek/mbedtls-project/bignum_core_original.c	2026-05-05 14:41:30.747989762 +0100
++++ /home/abhishek/mbedtls-project/bignum_core_modified.c	2026-05-09 14:28:43.606176139 +0100
+@@ -403,6 +403,23 @@
+     }
+ }
+ 
++// mbedtls_mpi_uint mbedtls_mpi_core_add(mbedtls_mpi_uint *X,
++//                                       const mbedtls_mpi_uint *A,
++//                                       const mbedtls_mpi_uint *B,
++//                                       size_t limbs)
++// {
++//     mbedtls_mpi_uint c = 0;
++
++//     for (size_t i = 0; i < limbs; i++) {
++//         mbedtls_mpi_uint t = c + A[i];
++//         c = (t < A[i]);
++//         t += B[i];
++//         c += (t < B[i]);
++//         X[i] = t;
++//     }
++
++//     return c;
++// }
+ mbedtls_mpi_uint mbedtls_mpi_core_add(mbedtls_mpi_uint *X,
+                                       const mbedtls_mpi_uint *A,
+                                       const mbedtls_mpi_uint *B,
+@@ -410,6 +427,39 @@
+ {
+     mbedtls_mpi_uint c = 0;
+ 
++#if defined(__aarch64__)
++    if (limbs > 0) {
++        mbedtls_mpi_uint *x_ptr = X;
++        const mbedtls_mpi_uint *a_ptr = A;
++        const mbedtls_mpi_uint *b_ptr = B;
++        size_t count = limbs;
++        uint64_t tmp_a, tmp_b;
++
++        __asm__ __volatile__ (
++            /* Clear carry flag */
++            "adds   xzr, xzr, xzr           \n\t"
++
++            "1:                              \n\t"
++            "ldr    %[tmp_a], [%[a_ptr]], #8 \n\t"
++            "ldr    %[tmp_b], [%[b_ptr]], #8 \n\t"
++            "adcs   %[tmp_a], %[tmp_a], %[tmp_b] \n\t"
++            "str    %[tmp_a], [%[x_ptr]], #8 \n\t"
++
++            "sub    %[count], %[count], #1   \n\t"
++            "cbnz   %[count], 1b             \n\t"
++
++            /* Extract carry */
++            "cset   %[c], cs                 \n\t"
++
++            : [c] "=r" (c),
++              [a_ptr] "+r" (a_ptr), [b_ptr] "+r" (b_ptr),
++              [x_ptr] "+r" (x_ptr), [count] "+r" (count),
++              [tmp_a] "=&r" (tmp_a), [tmp_b] "=&r" (tmp_b)
++            :
++            : "cc", "memory"
++        );
++    }
++#else
+     for (size_t i = 0; i < limbs; i++) {
+         mbedtls_mpi_uint t = c + A[i];
+         c = (t < A[i]);
+@@ -417,10 +467,10 @@
+         c += (t < B[i]);
+         X[i] = t;
+     }
++#endif
+ 
+     return c;
+ }
+-
+ mbedtls_mpi_uint mbedtls_mpi_core_add_if(mbedtls_mpi_uint *X,
+                                          const mbedtls_mpi_uint *A,
+                                          size_t limbs,
+@@ -442,6 +492,24 @@
+     return c;
+ }
+ 
++// mbedtls_mpi_uint mbedtls_mpi_core_sub(mbedtls_mpi_uint *X,
++//                                       const mbedtls_mpi_uint *A,
++//                                       const mbedtls_mpi_uint *B,
++//                                       size_t limbs)
++// {
++//     mbedtls_mpi_uint c = 0;
++
++//     for (size_t i = 0; i < limbs; i++) {
++//         mbedtls_mpi_uint z = mbedtls_ct_mpi_uint_if(mbedtls_ct_uint_lt(A[i], c),
++//                                                     1, 0);
++//         mbedtls_mpi_uint t = A[i] - c;
++//         c = mbedtls_ct_mpi_uint_if(mbedtls_ct_uint_lt(t, B[i]), 1, 0) + z;
++//         X[i] = t - B[i];
++//     }
++
++//     return c;
++// }
++
+ mbedtls_mpi_uint mbedtls_mpi_core_sub(mbedtls_mpi_uint *X,
+                                       const mbedtls_mpi_uint *A,
+                                       const mbedtls_mpi_uint *B,
+@@ -449,6 +517,39 @@
+ {
+     mbedtls_mpi_uint c = 0;
+ 
++#if defined(__aarch64__)
++    if (limbs > 0) {
++        mbedtls_mpi_uint *x_ptr = X;
++        const mbedtls_mpi_uint *a_ptr = A;
++        const mbedtls_mpi_uint *b_ptr = B;
++        size_t count = limbs;
++        uint64_t tmp_a, tmp_b;
++
++        __asm__ __volatile__ (
++            /* Set carry flag to 1 (no borrow) for first SBCS */
++            "cmp    xzr, xzr                \n\t"
++
++            "1:                             \n\t"
++            "ldr    %[tmp_a], [%[a_ptr]], #8 \n\t"
++            "ldr    %[tmp_b], [%[b_ptr]], #8 \n\t"
++            "sbcs   %[tmp_a], %[tmp_a], %[tmp_b] \n\t"
++            "str    %[tmp_a], [%[x_ptr]], #8 \n\t"
++
++            "sub    %[count], %[count], #1   \n\t"
++            "cbnz   %[count], 1b             \n\t"
++
++            /* Extract borrow: C=0 means borrow occurred, so c=1 */
++            "cset   %[c], cc                 \n\t"
++
++            : [c] "=r" (c),
++              [a_ptr] "+r" (a_ptr), [b_ptr] "+r" (b_ptr),
++              [x_ptr] "+r" (x_ptr), [count] "+r" (count),
++              [tmp_a] "=&r" (tmp_a), [tmp_b] "=&r" (tmp_b)
++            :
++            : "cc", "memory"
++        );
++    }
++#else
+     for (size_t i = 0; i < limbs; i++) {
+         mbedtls_mpi_uint z = mbedtls_ct_mpi_uint_if(mbedtls_ct_uint_lt(A[i], c),
+                                                     1, 0);
+@@ -456,38 +557,142 @@
+         c = mbedtls_ct_mpi_uint_if(mbedtls_ct_uint_lt(t, B[i]), 1, 0) + z;
+         X[i] = t - B[i];
+     }
++#endif
+ 
+     return c;
+ }
+ 
++// mbedtls_mpi_uint mbedtls_mpi_core_mla(mbedtls_mpi_uint *d, size_t d_len,
++//                                       const mbedtls_mpi_uint *s, size_t s_len,
++//                                       mbedtls_mpi_uint b)
++// {
++//     mbedtls_mpi_uint c = 0; /* carry */
++//     /*
++//      * It is a documented precondition of this function that d_len >= s_len.
++//      * If that's not the case, we swap these round: this turns what would be
++//      * a buffer overflow into an incorrect result.
++//      */
++//     if (d_len < s_len) {
++//         s_len = d_len;
++//     }
++//     size_t excess_len = d_len - s_len;
++//     size_t steps_x8 = s_len / 8;
++//     size_t steps_x1 = s_len & 7;
++
++//     while (steps_x8--) {
++//         MULADDC_X8_INIT
++//         MULADDC_X8_CORE
++//             MULADDC_X8_STOP
++//     }
++
++//     while (steps_x1--) {
++//         MULADDC_X1_INIT
++//         MULADDC_X1_CORE
++//             MULADDC_X1_STOP
++//     }
++
++//     while (excess_len--) {
++//         *d += c;
++//         c = mbedtls_ct_mpi_uint_if(mbedtls_ct_uint_lt(*d, c), 1, 0);
++//         d++;
++//     }
++
++//     return c;
++// }
+ mbedtls_mpi_uint mbedtls_mpi_core_mla(mbedtls_mpi_uint *d, size_t d_len,
+                                       const mbedtls_mpi_uint *s, size_t s_len,
+                                       mbedtls_mpi_uint b)
+ {
+-    mbedtls_mpi_uint c = 0; /* carry */
+-    /*
+-     * It is a documented precondition of this function that d_len >= s_len.
+-     * If that's not the case, we swap these round: this turns what would be
+-     * a buffer overflow into an incorrect result.
+-     */
+-    if (d_len < s_len) {
+-        s_len = d_len;
+-    }
++    mbedtls_mpi_uint c = 0;
++    if (d_len < s_len) { s_len = d_len; }
+     size_t excess_len = d_len - s_len;
+-    size_t steps_x8 = s_len / 8;
+-    size_t steps_x1 = s_len & 7;
+ 
+-    while (steps_x8--) {
+-        MULADDC_X8_INIT
+-        MULADDC_X8_CORE
+-            MULADDC_X8_STOP
+-    }
++#if defined(__aarch64__)
++    if (s_len > 0) {
++        mbedtls_mpi_uint *s_ptr = (mbedtls_mpi_uint *)s;
++        mbedtls_mpi_uint *d_ptr = d;
++
++        /* Process pairs of limbs (2 at a time) */
++        size_t pairs = s_len / 2;
++        size_t remaining = s_len % 2;
++
++        if (pairs > 0) {
++            uint64_t ts0, ts1, td0, td1, lo0, hi0, lo1, hi1;
++            size_t cnt = pairs;
++
++            __asm__ __volatile__ (
++                "1:                                  \n\t"
++                /* Load both source and dest limbs */
++                "ldr    %[ts0], [%[sp]], #8          \n\t"
++                "ldr    %[ts1], [%[sp]], #8          \n\t"
++                "ldr    %[td0], [%[dp]]              \n\t"
++                "ldr    %[td1], [%[dp], #8]          \n\t"
++
++                /* Issue all 4 multiplies upfront — CPU can pipeline these */
++                "mul    %[lo0], %[ts0], %[b]         \n\t"
++                "umulh  %[hi0], %[ts0], %[b]         \n\t"
++                "mul    %[lo1], %[ts1], %[b]         \n\t"
++                "umulh  %[hi1], %[ts1], %[b]         \n\t"
++
++                /* Limb 0: d[i] += s[i]*b + carry */
++                "adds   %[td0], %[td0], %[c]        \n\t"
++                "adcs   %[c],   %[hi0], xzr          \n\t"
++                "adds   %[td0], %[td0], %[lo0]       \n\t"
++                "adc    %[c],   %[c],   xzr          \n\t"
++                "str    %[td0], [%[dp]], #8          \n\t"
++
++                /* Limb 1: d[i+1] += s[i+1]*b + carry */
++                "adds   %[td1], %[td1], %[c]        \n\t"
++                "adcs   %[c],   %[hi1], xzr          \n\t"
++                "adds   %[td1], %[td1], %[lo1]       \n\t"
++                "adc    %[c],   %[c],   xzr          \n\t"
++                "str    %[td1], [%[dp]], #8          \n\t"
++
++                "subs   %[cnt], %[cnt], #1           \n\t"
++                "b.ne   1b                           \n\t"
++
++                : [c] "+r" (c), [sp] "+r" (s_ptr), [dp] "+r" (d_ptr),
++                  [cnt] "+r" (cnt),
++                  [ts0] "=&r" (ts0), [ts1] "=&r" (ts1),
++                  [td0] "=&r" (td0), [td1] "=&r" (td1),
++                  [lo0] "=&r" (lo0), [hi0] "=&r" (hi0),
++                  [lo1] "=&r" (lo1), [hi1] "=&r" (hi1)
++                : [b] "r" (b)
++                : "cc", "memory"
++            );
++        }
++
++        /* Handle remaining odd limb */
++        if (remaining) {
++            uint64_t ts, td, lo, hi;
++            __asm__ __volatile__ (
++                "ldr    %[ts], [%[sp]], #8           \n\t"
++                "ldr    %[td], [%[dp]]               \n\t"
++                "mul    %[lo], %[ts], %[b]           \n\t"
++                "umulh  %[hi], %[ts], %[b]           \n\t"
++                "adds   %[td], %[td], %[c]           \n\t"
++                "adcs   %[c],  %[hi], xzr            \n\t"
++                "adds   %[td], %[td], %[lo]          \n\t"
++                "adc    %[c],  %[c],  xzr            \n\t"
++                "str    %[td], [%[dp]], #8           \n\t"
++                : [c] "+r" (c), [sp] "+r" (s_ptr), [dp] "+r" (d_ptr),
++                  [ts] "=&r" (ts), [td] "=&r" (td),
++                  [lo] "=&r" (lo), [hi] "=&r" (hi)
++                : [b] "r" (b)
++                : "cc", "memory"
++            );
++        }
+ 
+-    while (steps_x1--) {
+-        MULADDC_X1_INIT
+-        MULADDC_X1_CORE
+-            MULADDC_X1_STOP
++        d = d_ptr;
++    }
++#else
++    for (size_t i = 0; i < s_len; i++) {
++        unsigned __int128 r = (unsigned __int128) s[i] * b + d[i] + c;
++        d[i] = (mbedtls_mpi_uint) r;
++        c = (mbedtls_mpi_uint) (r >> 64);
+     }
++    d += s_len;
++#endif
+ 
+     while (excess_len--) {
+         *d += c;
+@@ -497,7 +702,6 @@
+ 
+     return c;
+ }
+-
+ void mbedtls_mpi_core_mul(mbedtls_mpi_uint *X,
+                           const mbedtls_mpi_uint *A, size_t A_limbs,
+                           const mbedtls_mpi_uint *B, size_t B_limbs)
