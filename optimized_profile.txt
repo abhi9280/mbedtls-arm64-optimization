@@ -1,0 +1,48 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 59  of event 'cycles:P'
+# Event count (approx.): 18547135
+#
+# Overhead  Symbol                                                    IPC   [IPC Coverage]
+# ........  ........................................................  ....................
+#
+    12.23%  [.] ecp_mod_p256                                          -      -            
+    11.53%  [.] mbedtls_mpi_sub_abs                                   -      -            
+     7.92%  [.] mbedtls_mpi_core_gcd_modinv_odd                       -      -            
+     6.07%  [.] mbedtls_mpi_cmp_abs                                   -      -            
+     6.00%  [.] mbedtls_mpi_core_mla                                  -      -            
+     5.70%  [.] mbedtls_mpi_grow                                      -      -            
+     3.90%  [.] mbedtls_mpi_core_mul                                  -      -            
+     3.73%  [.] cfree                                                 -      -            
+     2.48%  [k] __pte_alloc                                           -      -            
+     2.47%  [.] 0x000000000000cfb4                                    -      -            
+     2.42%  [.] mbedtls_ct_base64_dec_value                           -      -            
+     2.11%  [k] el0_svc                                               -      -            
+     2.11%  [k] netlink_dump                                          -      -            
+     1.99%  [.] memcpy@plt                                            -      -            
+     1.99%  [.] 0x00000000000a3b64                                    -      -            
+     1.97%  [k] fdget_pos                                             -      -            
+     1.96%  [.] ecp_mod_p255                                          -      -            
+     1.95%  [k] fib_table_lookup                                      -      -            
+     1.95%  [k] __ip_local_out                                        -      -            
+     1.95%  [.] mbedtls_mpi_cmp_mpi                                   -      -            
+     1.94%  [.] mbedtls_mpi_copy                                      -      -            
+     1.93%  [k] free_swap_cache                                       -      -            
+     1.91%  [.] x509_crt_verify_restartable_ca_cb.constprop.0.isra.0  -      -            
+     1.91%  [.] __tunable_get_val                                     -      -            
+     1.90%  [.] 0x00000000000a30ac                                    -      -            
+     1.88%  [.] 0x00000000000a4054                                    -      -            
+     1.86%  [.] mbedtls_mpi_safe_cond_swap                            -      -            
+     1.82%  [.] mbedtls_mpi_add_abs                                   -      -            
+     1.79%  [.] __libc_calloc                                         -      -            
+     0.57%  [k] vma_complete                                          -      -            
+     0.07%  [k] set_cred_ucounts                                      -      -            
+     0.01%  [k] perf_event_exec                                       -      -            
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

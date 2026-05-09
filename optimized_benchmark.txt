@@ -1,0 +1,86 @@
+
+  MD5                      :     180838 KiB/s,          0 cycles/byte
+  RIPEMD160                :     118646 KiB/s,          0 cycles/byte
+  SHA-1                    :     162220 KiB/s,          0 cycles/byte
+  SHA-256                  :     105095 KiB/s,          0 cycles/byte
+  SHA-512                  :     100785 KiB/s,          0 cycles/byte
+  SHA3-224                 :      43372 KiB/s,          0 cycles/byte
+  SHA3-256                 :      43566 KiB/s,          0 cycles/byte
+  SHA3-384                 :      35026 KiB/s,          0 cycles/byte
+  SHA3-512                 :      23618 KiB/s,          0 cycles/byte
+  AES-CBC-128              :      84562 KiB/s,          0 cycles/byte
+  AES-CBC-192              :      72740 KiB/s,          0 cycles/byte
+  AES-CBC-256              :      63810 KiB/s,          0 cycles/byte
+  AES-CFB128-128           :      66945 KiB/s,          0 cycles/byte
+  AES-CFB128-192           :      59295 KiB/s,          0 cycles/byte
+  AES-CFB128-256           :      53235 KiB/s,          0 cycles/byte
+  AES-CFB8-128             :       5242 KiB/s,          0 cycles/byte
+  AES-CFB8-192             :       4514 KiB/s,          0 cycles/byte
+  AES-CFB8-256             :       3964 KiB/s,          0 cycles/byte
+  AES-CTR-128              :      84248 KiB/s,          0 cycles/byte
+  AES-CTR-192              :      72512 KiB/s,          0 cycles/byte
+  AES-CTR-256              :      63633 KiB/s,          0 cycles/byte
+  AES-GCM-128              :      43134 KiB/s,          0 cycles/byte
+  AES-GCM-192              :      39582 KiB/s,          0 cycles/byte
+  AES-GCM-256              :      36602 KiB/s,          0 cycles/byte
+  AES-CCM-128              :      34785 KiB/s,          0 cycles/byte
+  AES-CCM-192              :      30542 KiB/s,          0 cycles/byte
+  AES-CCM-256              :      27185 KiB/s,          0 cycles/byte
+  ChaCha20-Poly1305        :     111204 KiB/s,          0 cycles/byte
+  AES-CMAC-128             :      70483 KiB/s,          0 cycles/byte
+  AES-CMAC-192             :      61683 KiB/s,          0 cycles/byte
+  AES-CMAC-256             :      54465 KiB/s,          0 cycles/byte
+  AES-CMAC-PRF-128         :      70341 KiB/s,          0 cycles/byte
+  ARIA-CBC-128             :      56833 KiB/s,          0 cycles/byte
+  ARIA-CBC-192             :      48815 KiB/s,          0 cycles/byte
+  ARIA-CBC-256             :      43200 KiB/s,          0 cycles/byte
+  CAMELLIA-CBC-128         :      36944 KiB/s,          0 cycles/byte
+  CAMELLIA-CBC-192         :      27882 KiB/s,          0 cycles/byte
+  CAMELLIA-CBC-256         :      27864 KiB/s,          0 cycles/byte
+  ChaCha20                 :     158414 KiB/s,          0 cycles/byte
+  Poly1305                 :     437697 KiB/s,          0 cycles/byte
+  CTR_DRBG (NOPR)          :      57762 KiB/s,          0 cycles/byte
+  CTR_DRBG (PR)            :      43013 KiB/s,          0 cycles/byte
+  HMAC_DRBG SHA-1 (NOPR)   :      11250 KiB/s,          0 cycles/byte
+  HMAC_DRBG SHA-1 (PR)     :      10437 KiB/s,          0 cycles/byte
+  HMAC_DRBG SHA-256 (NOPR) :      10791 KiB/s,          0 cycles/byte
+  HMAC_DRBG SHA-256 (PR)   :      10794 KiB/s,          0 cycles/byte
+  RSA-2048                 :    2407  public/s
+  RSA-2048                 :      76 private/s
+  RSA-3072                 :    1124  public/s
+  RSA-3072                 :      28 private/s
+  RSA-4096                 :     649  public/s
+  RSA-4096                 :      13 private/s
+  ECDSA-secp521r1          :     290 sign/s
+  ECDSA-brainpoolP512r1    :      55 sign/s
+  ECDSA-secp384r1          :     529 sign/s
+  ECDSA-brainpoolP384r1    :     126 sign/s
+  ECDSA-secp256r1          :     844 sign/s
+  ECDSA-secp256k1          :     763 sign/s
+  ECDSA-brainpoolP256r1    :     229 sign/s
+  ECDSA-secp521r1          :      79 verify/s
+  ECDSA-brainpoolP512r1    :      12 verify/s
+  ECDSA-secp384r1          :     144 verify/s
+  ECDSA-brainpoolP384r1    :      28 verify/s
+  ECDSA-secp256r1          :     246 verify/s
+  ECDSA-secp256k1          :     225 verify/s
+  ECDSA-brainpoolP256r1    :      58 verify/s
+  ECDHE-secp521r1          :      88 ephemeral handshake/s
+  ECDHE-brainpoolP512r1    :      12 ephemeral handshake/s
+  ECDHE-secp384r1          :     159 ephemeral handshake/s
+  ECDHE-brainpoolP384r1    :      29 ephemeral handshake/s
+  ECDHE-secp256r1          :     263 ephemeral handshake/s
+  ECDHE-secp256k1          :     241 ephemeral handshake/s
+  ECDHE-brainpoolP256r1    :      59 ephemeral handshake/s
+  ECDHE-x25519             :     211 ephemeral handshake/s
+  ECDHE-x448               :      86 ephemeral handshake/s
+  ECDH-secp521r1           :     117 static handshake/s
+  ECDH-brainpoolP512r1     :      16 static handshake/s
+  ECDH-secp384r1           :     211 static handshake/s
+  ECDH-brainpoolP384r1     :      37 static handshake/s
+  ECDH-secp256r1           :     358 static handshake/s
+  ECDH-secp256k1           :     329 static handshake/s
+  ECDH-brainpoolP256r1     :      79 static handshake/s
+  ECDH-x25519              :     405 static handshake/s
+  ECDH-x448                :     169 static handshake/s
+
